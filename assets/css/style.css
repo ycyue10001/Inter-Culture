@@ -1,0 +1,201 @@
+/* 
+   "扎西德勒健康" 网站样式表
+   本样式表的设计遵循了文化适配的双层结构模型。
+   Ref: [20, 21]
+*/
+
+/* --- 全局与基础样式 --- */
+:root {
+    /* 
+       色彩定义 - 表层结构适配 (Surface Structure Adaptation)
+       灵感源于藏族传统五色（白、蓝、红、黄、绿），赋予其文化象征意义。
+       Ref: [26, 31]
+    */
+    --color-background: #FFFFFF; /* 白色: 象征纯洁、祥云，作为主背景，确保可读性。 */
+    --color-text: #333333; /* 深灰色: 提供最佳阅读对比度。 */
+    --color-primary: #005A8D; /* 藏蓝色: 象征天空，用于头部和尾部，营造沉稳感。 Ref: [26] */
+    --color-accent: #FFD700; /* 金黄色: 象征智慧、尊贵，用于重要标题，赋予神圣感。 Ref: [26] */
+    --color-highlight: #C82506; /* 赭红色: 象征力量、生命，用于按钮等交互元素。 Ref: [26] */
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-size-base: 18px; /* 基础字号: 较大，适应低视力或老年用户。深层结构适配。 Ref: [6] */
+    --line-height-base: 1.7; /* 行高: 较大，增加段落可读性。深层结构适配。 */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--color-accent); /* 金黄色标题，表层适配 */
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--color-highlight);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #E04020;
+}
+
+/* --- 头部 Header --- */
+.site-header {
+    background-color: var(--color-primary); /* 藏蓝色背景，表层适配 */
+    color: var(--color-background);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.site-header.subtitle {
+    color: #E0E0E0;
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.site-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.site-header nav a {
+    color: var(--color-background);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* --- 内容区域 Sections --- */
+main section {
+    padding: 3rem 0;
+}
+
+/* --- 吉祥结分隔符 --- */
+/*
+   表层结构适配 (Surface Structure Adaptation)
+   使用吉祥结图案作为内容分隔，增强文化关联性。
+   Ref: [27, 28]
+*/
+.endless-knot-divider {
+    height: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" viewBox="0 0 100 30"><path d="M25 15 L50 0 L75 15 L50 30 Z M0 15 L25 0 L50 15 L25 30 Z M50 15 L75 0 L100 15 L75 30 Z" fill="none" stroke="%23FFD700" stroke-width="2"/></svg>');
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.5;
+}
+
+
+/* --- 主题卡片 Topics Section --- */
+/*
+   深层结构适配 (Deep Structure Adaptation)
+   采用卡片式设计，将信息“分块”呈现，降低认知负荷。
+   Ref: [6, 12]
+*/
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.topic-card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topic-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    color: var(--color-primary); /* 临时使用占位符，实际应为吉祥八宝SVG */
+}
+
+.details-btn {
+    background-color: var(--color-highlight);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.details-btn:hover {
+    background-color: #E04020;
+}
+
+.details-container {
+    background-color: #f0f5f9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    display: none; /* Initially hidden */
+}
+
+.details-container h4 {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+.details-container ul {
+    padding-left: 20px;
+}
+
+/* --- 尾部 Footer --- */
+.site-footer {
+    background-color: var(--color-primary);
+    color: #ccc;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
