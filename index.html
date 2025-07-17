@@ -4,148 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>扎西德勒健康 | བཀྲ་ཤིས་བདེ་ལེགས།</title>
-    <meta name="description" content="一个为藏族社区设计的，深度融合文化与实用信息的健康知识网页。">
+    <meta name="description" content="一个为藏族社区设计的，提供深度健康指南与AI智能问答的交互式健康门户。">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-    <header class="site-header">
-        <div class="container">
+    <div class="app-layout">
+        <aside class="sidebar">
             <div class="logo">
                 <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" stroke-width="6" fill="none"/><circle cx="50" cy="50" r="12" stroke-width="6" fill="none"/><path d="M50,12 L50,88 M12,50 L88,50 M26.2,26.2 L73.8,73.8 M26.2,73.8 L73.8,26.2" stroke-width="6"/></svg>
-                <h1>扎西德勒健康</h1>
+                <h2>扎西德勒健康</h2>
             </div>
-            <p class="subtitle">བཀྲ་ཤིས་བདེ་ལེགས།</p>
-            <nav>
-                <a href="#health-topics">健康主题</a>
-                <a href="#resources">实用资源</a>
-                <a href="#about">关于我们</a>
+            <nav class="main-nav">
+                <a href="#guides" class="nav-item active" data-target="guides-page"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V6h5.17l2 2H20v10z"/></svg> <span>健康指南</span></a>
+                <a href="#ai-chat" class="nav-item" data-target="ai-chat-page"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2.9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.41 12.41L8 11l-1.41 1.41L5.17 11 6.59 9.59 8 11l1.41-1.41L10.83 11l-1.42 1.41zM16 14h-4v-2h4v2zm0-3h-4V9h4v2z"/></svg> <span>AI 智医</span></a>
             </nav>
-        </div>
-    </header>
+        </aside>
 
-    <main class="container">
-        <section id="health-topics">
-            <h2 class="section-title">高原健康智慧</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-11h2v6h-2v-6zm0-3h2v2h-2v-2z"/></svg>
+        <main class="main-content">
+            <div id="guides-page" class="page active">
+                <header class="page-header">
+                    <h1>健康指南库</h1>
+                    <p>汇集高原常见健康问题的深度解读与实用建议</p>
+                </header>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h4>1. 高原高血压管理指南</h4>
+                        <p>高血压是高原地区最常见的慢性病之一 [1, 2, 3]。本指南将现代医学与藏医药“隆”失衡的理论相结合 [4, 5]，提供包括低盐饮食改良（如健康酥油茶配方）、规律运动（如结合转经的步行计划）、药物依从性以及情绪管理在内的综合性管理方案。</p>
                     </div>
-                    <h3 class="card-title">高原上的“高血压”管理</h3>
-                    <p class="card-summary">高血压是高原地区常见的健康问题。学习如何通过饮食和生活习惯，让身体回归和谐与平衡。</p>
-                    <div class="card-content">
-                        <h4>什么是高血压？</h4>
-                        <p>在藏医药的智慧中，身体的健康依赖于“隆”（风）、“赤巴”（胆）、“培根”（涎）三种能量的平衡。当“隆”的运行不畅或过盛时，可能会引起头晕、心慌等不适。现代医学把血管里血液的压力持续过高的情况称为“高血压”，这会增加心脏和脑血管疾病的风险。</p>
-                        <h4>生活中的管理智慧：</h4>
-                        <ul>
-                            <li><strong>饮食调理——少一点盐，多一份健康：</strong> 传统饮食中的酥油茶和风干肉虽然美味，但含盐量较高，过多的盐分会给身体带来负担。<strong>建议：</strong> 尝试每天在茶里少放一撮盐，慢慢品味牛奶和茶本身的香醇。烹饪时，多用葱、姜、蒜等天然香料提味。</li>
-                            <li><strong>规律运动——让“隆”顺畅起来：</strong> 每日转经、散步都是非常好的活动。保持适度运动，有助于气血流通，平衡“隆”的能量。<strong>建议：</strong> 争取每天能有半小时左右的快走，让心跳微微加快，身体微微出汗。</li>
-                            <li><strong>遵从医嘱——现代方法的帮助：</strong> 如果医生为您开了降压药，请把它看作是帮助身体恢复平衡的有力工具。不要因为感觉好些就随意停药，务必按照医生的指导坚持服用。</li>
-                            <li><strong>心态平和——安抚内在的风：</strong> 焦虑和压力也会扰乱“隆”的平衡。<strong>建议：</strong> 感到心烦时，可以静坐几分钟，专注于自己的呼吸，感受气息的一进一出，这能帮助内心恢复平静。</li>
-                        </ul>
+                    <div class="guide-card">
+                        <h4>2. 藏式平衡膳食宝典</h4>
+                        <p>针对本地高脂高盐的饮食特点 [1]，本指南提供符合藏族饮食习惯的“平衡餐盘”模型，详细介绍如何科学搭配糌粑、肉类与本地蔬菜。特别包含一个“读懂食品包装”的互动章节，帮助用户识别高风险加工食品 [6, 7]。</p>
                     </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.28 15.45c-.29.29-.77.29-1.06 0l-2.83-2.83c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l2.83 2.83c.29.29.29.77 0 1.06zm3.54-3.54c-.29.29-.77.29-1.06 0l-2.83-2.83c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l2.83 2.83c.29.29.29.77 0 1.06zm3.54-3.53c-.29.29-.77.29-1.06 0l-2.83-2.83c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l2.83 2.83c.29.29.29.77 0 1.06z"/></svg>
+                    <div class="guide-card">
+                        <h4>3. 糖尿病预防与早期识别</h4>
+                        <p>随着生活方式改变，糖尿病风险增加。本指南用通俗易懂的语言解释什么是糖尿病，列出早期症状（如多饮、多尿、体重不明原因下降），并提供通过调整饮食结构（如控制甜茶摄入）和增加体力活动来预防糖尿病的具体方法。</p>
                     </div>
-                    <h3 class="card-title">藏式饮食智慧</h3>
-                    <p class="card-summary">如何在享受传统美食的同时，吃得更健康？学习“读懂”食品包装的秘密，预防“病从口入”。</p>
-                    <div class="card-content">
-                        <h4>藏式“平衡餐盘”：</h4>
-                        <p>我们的传统食物是高原赐予的宝贵财富。用现代营养的眼光来看，我们可以这样搭配：</p>
-                        <ul>
-                            <li><strong>一半蔬菜：</strong> 尽可能让蔬菜占到餐盘的一半，比如萝卜、土豆、白菜、青笋等。</li>
-                            <li><strong>四分之一主食：</strong> 糌粑是极好的主食，富含纤维，能量持久。</li>
-                            <li><strong>四分之一蛋白：</strong> 牦牛肉、羊肉和酸奶、奶渣提供了优质的蛋白质。烹饪时多采用炖、煮的方式。</li>
-                        </ul>
-                        <h4>读懂食品包装的秘密：</h4>
-                        <p>研究发现，很多人不了解如何看包装食品的说明。购买时，请花一点时间看看包装背面：</p>
-                        <ul>
-                            <li><strong>看配料表：</strong> 排在越前面的成分，含量越高。如果“糖”、“盐”、“油”（或“脂肪”）排在前几位，就要少吃。</li>
-                            <li><strong>看营养成分表：</strong> 关注“钠”（代表盐）、“脂肪”和“糖”的含量。这些数值越低越好。</li>
-                        </ul>
-                        <h4>特别提醒：预防包虫病</h4>
-                        <p>这是我区常见的、可以预防的疾病。请一定记住以下几点：</p>
-                        <ol>
-                            <li><strong>管好家犬：</strong> 定期给家里的狗喂驱虫药，这是最重要的一步。</li>
-                            <li><strong>喝开水，勤洗手：</strong> 不喝生水，饭前便后、处理完生肉、接触过犬只后，要用肥皂彻底洗手。</li>
-                            <li><strong>食物要洗净煮熟：</strong> 蔬菜水果要洗干净，肉类一定要煮熟再吃。</li>
-                        </ol>
+                    <div class="guide-card">
+                        <h4>4. 肝胆健康特别关注</h4>
+                        <p>研究显示，胆囊炎等肝胆疾病在本地较为普遍 。本指南详细介绍肝胆疾病的常见症状（如右上腹疼痛、消化不良），分析其与高脂饮食的关系，并强调定期体检和B超检查的重要性。</p>
                     </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <div class="guide-card">
+                        <h4>5. “隆”的平衡与心理健康</h4>
+                        <p>藏医药认为，焦虑、失眠、心神不宁等问题与“隆”的失衡密切相关 [8, 9]。本指南提供多种非药物的“安抚隆”的方法，如观呼吸练习、静坐冥想入门、以及通过亲近自然和社交倾诉来舒缓压力。</p>
                     </div>
-                    <h3 class="card-title">身心安康之道</h3>
-                    <p class="card-summary">身体的安康离不开内心的宁静。学习管理情绪与改善睡眠，让身心和谐统一。</p>
-                    <div class="card-content">
-                        <h4>情绪与“隆”的平衡：</h4>
-                        <p>藏医药认为，过度的思虑和烦恼会扰动体内的“隆”，导致心神不宁。管理好情绪，就是守护我们内在的安宁。</p>
-                        <ul>
-                            <li><strong>观呼吸，定心神：</strong> 当您感到心烦意乱时，找个安静的地方坐下，闭上眼睛，只关注自己的呼吸。感受气息从鼻孔吸入，再缓缓呼出。只需几分钟，就能帮助纷乱的“隆”平静下来。</li>
-                            <li><strong>多走动，亲近自然：</strong> 去户外散步，看看蓝天白云，听听风声，能有效舒缓紧张的情绪。</li>
-                            <li><strong>与人倾诉：</strong> 心里有烦恼时，不要独自承受。与家人或信赖的朋友聊一聊，把话说出来，内心会轻松很多。</li>
-                        </ul>
-                        <h4>拥有甜美好梦的智慧：</h4>
-                        <p>好的睡眠是恢复精力、保持健康的基础。如果您有睡眠方面的困扰，可以试试这些方法：</p>
-                        <ul>
-                            <li><strong>睡前静心：</strong> 睡前一小时，尽量不做费神的事情。可以喝一小杯温牛奶，但要避免喝浓茶。</li>
-                            <li><strong>营造安眠环境：</strong> 保持卧室黑暗、安静。</li>
-                            <li><strong>睡不着怎么办：</strong> 如果躺下很久都睡不着，不要强迫自己。可以起来走动一下，或者听一些舒缓的音乐，直到睡意来临再回到床上。</li>
-                        </ul>
+                    <div class="guide-card">
+                        <h4>6. 女性健康与保健</h4>
+                        <p>涵盖女性不同生命周期的健康要点，包括经期卫生、孕期保健（强调补充叶酸和定期产检的重要性）、以及更年期综合征的应对。内容特别强调高原环境下孕产妇保健的特殊性。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h4>7. 儿童成长与疫苗接种</h4>
+                        <p>提供0-6岁儿童生长发育的关键指标参考，以及国家免疫规划疫苗的完整接种时间表和注意事项 。用问答形式解答家长最关心的喂养、常见病护理（如感冒、腹泻）等问题。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h4>8. 预防人畜共患病（包虫病）</h4>
+                        <p>包虫病是严重危害我区人民健康的公共卫生问题 [10]。本指南用图文并茂的形式，详细讲解其传播途径，并提供“管好犬、喝开水、勤洗手、不吃生肉”等具体、可操作的“一管三不”预防措施。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h4>9. 识别中风与心脏病预警信号</h4>
+                        <p>心脑血管疾病是首要死因 [1, 11]。本指南教授如何快速识别中风（FAST口诀：面部、手臂、语言、时间）和心脏病发作的紧急信号，并强调一旦发现，必须立刻拨打急救电话，为生命争取时间。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h4>10. 科学就医与用药指南</h4>
+                        <p>帮助用户了解本地的医疗服务体系 [12, 13]。指导如何选择合适的医院、看病时如何与医生有效沟通、如何看懂药方、以及安全用药的基本原则（如不随意增减剂量、注意不良反应等）。</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="resources">
-            <h2 class="section-title">实用资源</h2>
-            <div class="tabs">
-                <button class="tab-link active" onclick="openTab(event, 'hospitals')">寻医问药</button>
-                <button class="tab-link" onclick="openTab(event, 'authorities')">权威机构</button>
+            <div id="ai-chat-page" class="page">
+                <header class="page-header">
+                    <h1>AI 智医 (Amchi-AI)</h1>
+                    <p>您身边的智能健康助手。请在下方输入您的问题。</p>
+                </header>
+                <div class="chat-container">
+                    <div class="chat-box" id="chat-box">
+                        <div class="message ai-message">
+                            <p>扎西德勒！我是Amchi-AI，您的智能健康助手。您可以问我关于高血压、饮食、或者哪里不舒服等问题。<strong>请注意：我的回答仅供参考，不能替代专业医生的诊断。</strong></p>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="user-input" placeholder="请在此输入您的问题...">
+                        <button id="send-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <div id="hospitals" class="tab-content active">
-                <h3>拉萨及各地市主要医院联系方式</h3>
-                <p>以下信息为您整理了区内部分主要医院的地址和电话，方便您在需要时查询。建议出行前再次核对，信息来源于公开资料，仅供参考。</p>
-                <ul class="resource-list">
-                    <li><strong>西藏自治区人民医院</strong><br>地址: 拉萨市城关区林廓北路18号<br>电话: 0891-6371462 </li>
-                    <li><strong>拉萨市人民医院</strong><br>地址: 拉萨市城关区北京中路1号 <br>电话: 0891-6323302 </li>
-                    <li><strong>西藏自治区藏医院 (门孜康)</strong><br>地址: 拉萨市城关区娘热路26号<br>电话: 0891-6679556 / 0891-6323428 </li>
-                    <li><strong>日喀则市人民医院</strong><br>地址: 日喀则市桑珠孜区山东中路19号<br>电话: 0892-8822655</li>
-                    <li><strong>山南市人民医院</strong><br>地址: 山南市乃东区湖南路19号<br>电话: 0893-7820289</li>
-                </ul>
-            </div>
-
-            <div id="authorities" class="tab-content">
-                <h3>官方健康信息来源</h3>
-                <p>获取准确的健康信息至关重要。以下是国家和自治区的官方卫生健康机构网站，您可以在这里找到最权威的政策和知识。</p>
-                <ul class="resource-list">
-                    <li><a href="http://www.nhc.gov.cn/" target="_blank">中华人民共和国国家卫生健康委员会</a></li>
-                    <li><a href="http://wjw.xizang.gov.cn/" target="_blank">西藏自治区卫生健康委员会</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2 class="section-title">关于我们</h2>
-            <p>“扎西德勒健康”是一个公益性学术项目，旨在探索如何利用数字技术，以深度融合文化的方式，为藏族同胞提供亲切、实用、科学的健康知识。本项目为课程作业，所有内容均基于公开的学术研究和官方资料整理而成，仅供参考，不能替代专业医疗建议。愿吉祥安康！</p>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-knot">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4"><path d="M35 20 L50 35 L65 20 L50 5 Z M35 80 L50 65 L65 80 L50 95 Z M20 35 L35 50 L20 65 L5 50 Z M80 35 L65 50 L80 65 L95 50 Z M35 20 L20 35 M65 20 L80 35 M35 80 L20 65 M65 80 L80 65"/></svg>
-            </div>
-            <p>&copy; 2025 扎西德勒健康项目</p>
-        </div>
-    </footer>
+        </main>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
