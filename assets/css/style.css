@@ -2,227 +2,201 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Tibetan:wght@400;700&display=swap');
 
 :root {
-    /* 
-       调色板: 基于藏族传统五色象征意义 [25, 26, 10, 27, 28, 29, 22]
-    */
-    --color-bg: #FDFDFD; /* 背景: 白色，象征圣洁、祥云 [26, 28] */
-    --color-text: #333333;
-    --color-primary: #005A8D; /* 主色: 藏蓝色，象征天空、智慧 [25] */
-    --color-accent-yellow: #FFB800; /* 强调色-黄: 象征高贵、兴旺，用于核心操作 [25, 26] */
-    --color-accent-red: #C82506; /* 强调色-红: 象征力量、威严，用于警示或重要提示 [25, 26] */
-    --color-border: #D1D1D1;
+    --color-primary: #005A8D; /* 主色: 藏蓝色 */
+    --color-secondary: #2a7ab0;
+    --color-accent-yellow: #FFB800; /* 强调色-黄 */
+    --color-accent-red: #C82506; /* 强调色-红 */
+    --color-bg: #f4f7f9;
+    --color-surface: #ffffff;
+    --color-text: #333;
+    --color-text-light: #666;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --font-sans: 'Noto Sans SC', sans-serif;
     --font-tibetan: 'Noto Sans Tibetan', sans-serif;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: var(--font-sans);
     background-color: var(--color-bg);
     color: var(--color-text);
-    line-height: 1.8;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
+.app-layout {
+    display: flex;
+    min-height: 100vh;
 }
 
-/* --- 头部区域 --- */
-.site-header {
-    background: linear-gradient(135deg, var(--color-primary), #003f62);
+/* --- 侧边栏 --- */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, var(--color-primary), #003f62);
     color: white;
-    padding: 2rem 0;
-    text-align: center;
-    border-bottom: 5px solid var(--color-accent-yellow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    gap: 12px;
+    margin-bottom: 2.5rem;
 }
 .logo-icon {
-    width: 50px;
-    height: 50px;
-    stroke: var(--color-accent-yellow);
-}
-.site-header h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    font-family: var(--font-tibetan), var(--font-sans);
-}
-.site-header.subtitle {
-    font-family: var(--font-tibetan);
-    font-size: 1.5rem;
-    opacity: 0.8;
-    margin-top: 5px;
-}
-.site-header nav {
-    margin-top: 1.5rem;
-}
-.site-header nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s;
-}
-.site-header nav a:hover {
-    color: var(--color-accent-yellow);
-}
-
-/* --- 主内容区域 --- */
-main {
-    padding: 2rem 0;
-}
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: var(--color-primary);
-    margin-bottom: 2.5rem;
-    font-family: var(--font-tibetan), var(--font-sans);
-    position: relative;
-}
-/* 吉祥结装饰线 */
-.section-title::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 3px;
-    background-color: var(--color-accent-yellow);
-    margin: 10px auto 0;
-}
-
-/* --- 卡片网格 --- */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-.card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-top: 5px solid var(--color-primary);
-    display: flex;
-    flex-direction: column;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-.card-icon {
-    color: var(--color-primary);
-    text-align: center;
-    padding-top: 1.5rem;
-}
-.card-icon svg {
-    width: 48px;
-    height: 48px;
-}
-.card-title {
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 0.5rem 1.5rem;
-    margin: 0;
-    font-family: var(--font-tibetan), var(--font-sans);
-}
-.card-summary {
-    text-align: center;
-    padding: 0 1.5rem 1.5rem;
-    color: #666;
-    flex-grow: 1;
-}
-.card-content {
-    padding: 0 1.5rem 1.5rem;
-    font-size: 0.95rem;
-}
-.card-content ul {
-    padding-left: 20px;
-}
-
-/* --- 实用资源区域 --- */
-#resources {
-    margin-top: 4rem;
-}
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--color-border);
-}
-.tab-link {
-    padding: 1rem 2rem;
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #888;
-    position: relative;
-    transition: color 0.3s;
-}
-.tab-link.active {
-    color: var(--color-primary);
-}
-.tab-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-primary);
-}
-.tab-content {
-    display: none;
-}
-.tab-content.active {
-    display: block;
-}
-.resource-list {
-    list-style: none;
-    padding: 0;
-}
-.resource-list li {
-    background-color: #f7f9fc;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    border-left: 5px solid var(--color-accent-yellow);
-}
-.resource-list a {
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--color-primary);
-}
-
-/* --- 关于我们区域 --- */
-#about {
-    margin-top: 4rem;
-    text-align: center;
-    background-color: #f7f9fc;
-    padding: 3rem 1rem;
-    border-radius: 12px;
-}
-
-/* --- 页脚区域 --- */
-.site-footer {
-    margin-top: 3rem;
-    background-color: #333;
-    color: #ccc;
-    text-align: center;
-    padding: 2rem 0;
-}
-.footer-knot svg {
     width: 40px;
     height: 40px;
     stroke: var(--color-accent-yellow);
+    flex-shrink: 0;
+}
+.logo h2 {
+    font-family: var(--font-tibetan), var(--font-sans);
+    font-size: 1.5rem;
+}
+.main-nav a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: #e0e0e0;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.main-nav a.active {
+    background-color: var(--color-accent-yellow);
+    color: var(--color-primary);
+    font-weight: bold;
+}
+.main-nav svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+}
+
+/* --- 主内容区 --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+}
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+.page-header {
+    margin-bottom: 2rem;
+}
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    font-family: var(--font-tibetan), var(--font-sans);
+}
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+}
+
+/* --- 健康指南网格 --- */
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+.guide-card {
+    background-color: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--color-primary);
+}
+.guide-card h4 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+.guide-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
+/* --- AI聊天界面 --- */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 12rem); /* 视口高度减去头部和边距 */
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+.chat-box {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+.message {
     margin-bottom: 1rem;
+    display: flex;
+    max-width: 80%;
+}
+.message p {
+    padding: 0.8rem 1.2rem;
+    border-radius: 18px;
+    line-height: 1.6;
+}
+.ai-message {
+    justify-content: flex-start;
+}
+.ai-message p {
+    background-color: #e9eef2;
+    border-bottom-left-radius: 4px;
+}
+.user-message {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+.user-message p {
+    background-color: var(--color-primary);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+.chat-input-area {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+#user-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+}
+#send-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    margin-left: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#send-btn svg {
+    width: 24px;
+    height: 24px;
 }
