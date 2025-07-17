@@ -1,87 +1,476 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>扎西德勒健康 | བཀྲ་ཤིས་བདེ་ལེགས།</title>
-    <meta name="description" content="一个为藏族社区设计的，提供深度健康指南与AI智能问答的交互式健康门户。">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>扎西德勒健康 - 西藏健康信息平台</title>
+    <style>
+        /* 藏族五色体系 */
+        :root {
+            --white: #FFFFFF;
+            --blue: #4A90E2;
+            --red: #D0021B;
+            --yellow: #F5A623;
+            --green: #7ED321;
+            --dark-text: #333333;
+            --light-text: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--white);
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--yellow);
+        }
+        
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--red);
+        }
+        
+        /* 吉祥结分隔符 */
+        .separator {
+            width: 80%;
+            height: 20px;
+            margin: 2rem auto;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M10,10 Q30,0 50,10 T90,10" stroke="%23F5A623" stroke-width="2" fill="none" /><path d="M10,10 Q30,20 50,10 T90,10" stroke="%23F5A623" stroke-width="2" fill="none" /></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        /* 主内容区域 */
+        main {
+            margin-top: 80px;
+            padding: 0 5%;
+        }
+        
+        /* 顶部横幅 */
+        .hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--yellow);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 健康板块 */
+        .health-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: rgba(245, 166, 35, 0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--blue);
+        }
+        
+        .content-block {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--green);
+        }
+        
+        .content-block h3 {
+            color: var(--red);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+        
+        .content-block p {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .balance-concept {
+            background: linear-gradient(to right, rgba(122, 210, 33, 0.1), rgba(74, 144, 226, 0.1));
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(122, 210, 33, 0.3);
+        }
+        
+        .balance-concept h3 {
+            color: var(--green);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .balance-concept p {
+            font-style: italic;
+            text-align: center;
+            color: var(--blue);
+            font-size: 1.2rem;
+        }
+        
+        /* 家庭关怀部分 */
+        .family-section {
+            background-color: rgba(208, 2, 27, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+        
+        .family-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .family-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .family-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--red), var(--yellow));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 2rem 5%;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .content-block h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="app-layout">
-        <aside class="sidebar">
-            <div class="logo">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM12 4c-2.97 0-5.58 1.66-6.96 4L12 12V4zm0 16c2.97 0 5.58-1.66 6.96-4L12 12v8zM4.04 8C5.42 5.66 8.03 4 11 4v8L4.04 8zm15.92 8c-1.38 2.34-3.99 4-6.96 4v-8l6.96 4z"/></svg>
-                <h2>扎西德勒健康</h2>
-            </div>
-            <nav class="main-nav">
-                <a href="#guides" class="nav-item active" data-target="guides-page">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 2H8C6.9 2 6 2.9 6 4v1H4v2h16V5h-2V4c0-1.1-.9-2-2-2zM8 4h8v1H8V4zm10 4H6c-1.1 0-2 2 2 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2z"/></svg> 
-                    <span>健康指南</span>
-                </a>
-                <a href="#ai-chat" class="nav-item" data-target="ai-chat-page">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2.9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.41 12.41L8 11l-1.41 1.41L5.17 11 6.59 9.59 8 11l1.41-1.41L10.83 11l-1.42 1.41zM16 14h-4v-2h4v2zm0-3h-4V9h4v2z"/></svg> 
-                    <span>AI 智医</span>
-                </a>
-            </nav>
-            <div class="sidebar-footer">
-                <div class="footer-knot">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6"><path d="M35 20 L50 35 L65 20 L50 5 Z M35 80 L50 65 L65 80 L50 95 Z M20 35 L35 50 L20 65 L5 50 Z M80 35 L65 50 L80 65 L95 50 Z M35 20 L20 35 M65 20 L80 35 M35 80 L20 65 M65 80 L80 65"/></svg>
-                </div>
-                <p>愿吉祥安康</p>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <div id="guides-page" class="page active">
-                <header class="page-header">
-                    <h1>健康指南库</h1>
-                    <p>汇集高原常见健康问题的深度解读与实用建议</p>
-                </header>
-                <div class="guide-grid">
-                    <div class="guide-card" data-guide="guide-1"><h4>1. 高原高血压管理指南</h4><p>高血压是高原地区最常见的慢性病之一。本指南将现代医学与藏医药“隆”失衡的理论相结合，提供综合性管理方案。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-2"><h4>2. 藏式平衡膳食宝典</h4><p>针对本地高脂高盐的饮食特点，本指南提供符合藏族饮食习惯的“平衡餐盘”模型，并包含“读懂食品包装”的互动章节。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-3"><h4>3. 糖尿病预防与早期识别</h4><p>随着生活方式改变，糖尿病风险增加。本指南用通俗易懂的语言解释糖尿病，列出早期症状，并提供具体的预防方法。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-4"><h4>4. 肝胆健康特别关注</h4><p>鉴于胆囊炎等肝胆疾病在本地较为普遍，本指南详细介绍其常见症状、风险因素，并强调定期体检的重要性。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-5"><h4>5. “隆”的平衡与心理健康</h4><p>藏医药认为，焦虑、失眠等问题与“隆”的失衡密切相关。本指南提供多种非药物的“安抚隆”的方法，如观呼吸、静坐等。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-6"><h4>6. 高原关节健康与养护</h4><p>高原气候寒冷潮湿，易发关节问题。本指南介绍关节炎的常见类型，并提供保暖、合理运动及食疗等日常养护建议。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-7"><h4>7. 儿童成长与疫苗接种</h4><p>提供0-6岁儿童生长发育的关键指标参考，以及国家免疫规划疫苗的完整接种时间表和注意事项，解答家长常见疑问。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-8"><h4>8. 预防人畜共患病（包虫病）</h4><p>包虫病是严重危害我区人民健康的公共卫生问题。本指南用图文并茂的形式，详细讲解其传播途径与“一管三不”预防措施。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-9"><h4>9. 识别中风与心脏病预警信号</h4><p>心脑血管疾病是首要死因之一。本指南教授如何快速识别中风（FAST口诀）和心脏病发作的紧急信号，强调急救的重要性。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-10"><h4>10. 高原眼部健康与保护</h4><p>高原紫外线强烈，易对眼睛造成伤害。本指南介绍白内障等常见眼病，并提供佩戴太阳镜、合理用眼等保护眼睛的方法。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-11"><h4>11. 女性健康与保健</h4><p>涵盖女性不同生命周期的健康要点，包括经期卫生、孕期保健（强调补充叶酸和定期产检）、以及更年期综合征的应对。</p><button class="guide-btn">查看详情</button></div>
-                    <div class="guide-card" data-guide="guide-12"><h4>12. 科学就医与用药指南</h4><p>帮助用户了解本地医疗服务体系。指导如何与医生有效沟通、看懂药方、以及安全用药的基本原则。</p><button class="guide-btn">查看详情</button></div>
-                </div>
-            </div>
-
-            <div id="ai-chat-page" class="page">
-                <header class="page-header">
-                    <h1>AI 智医 (Amchi-AI)</h1>
-                    <p>您身边的智能健康助手。请在下方输入您的问题。(AI功能由Gemini API驱动)</p>
-                </header>
-                <div class="chat-container">
-                    <div class="chat-box" id="chat-box">
-                        <div class="message ai-message"><p>扎西德勒！我是Amchi-AI，您的智能健康助手。您可以问我关于高血压、饮食、或者哪里不舒服等问题。<strong>请注意：我的回答仅供参考，不能替代专业医生的诊断。</strong></p></div>
-                    </div>
-                    <div class="chat-input-area">
-                        <input type="text" id="user-input" placeholder="请在此输入您的问题..." autocomplete="off">
-                        <button id="send-btn" title="发送"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <div id="guide-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-title">指南标题</h2>
-            <div id="modal-body">
-                <p>指南详细内容...</p>
-            </div>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">卍</div>
+            <span>扎西德勒健康</span>
         </div>
-    </div>
+        <div class="nav-links">
+            <a href="#hypertension">高血压防治</a>
+            <a href="#liver">肝胆健康</a>
+            <a href="#nutrition">营养平衡</a>
+            <a href="#family">家庭关怀</a>
+        </div>
+    </nav>
+    
+    <!-- 主内容区 -->
+    <main>
+        <!-- 顶部横幅 -->
+        <section class="hero">
+            <h1>扎西德勒健康</h1>
+            <p>基于藏族文化智慧的健康生活指南 · 为西藏家庭设计的健康信息平台</p>
+        </section>
+        
+        <!-- 吉祥结分隔符 -->
+        <div class="separator"></div>
+        
+        <!-- 高血压防治 -->
+        <section id="hypertension" class="health-section">
+            <div class="section-header">
+                <div class="section-icon">❤️</div>
+                <h2 class="section-title">高血压防治指南</h2>
+            </div>
+            
+            <div class="content-block">
+                <h3>理解血压与健康</h3>
+                <p>血压是血液在血管中流动时对血管壁产生的压力。当这个压力持续过高时，就被称为高血压。高血压是西藏地区常见的心血管疾病风险因素。</p>
+            </div>
+            
+            <div class="content-block">
+                <h3>饮食中的平衡之道</h3>
+                <p>藏族传统饮食富含营养，但某些食物如酥油茶、风干肉等含有较高盐分。我们建议以平衡的方式调整饮食习惯，而非完全放弃传统美食。</p>
+                
+                <div class="balance-concept">
+                    <h3>身体的内在和谐</h3>
+                    <p>"我们的身体就像一个需要精心维护的平衡系统。现代生活中的一些习惯，比如过多的盐分，可能会打破这种内在的和谐。适度调整饮食，是帮助我们的身体回归自然、健康平衡状态的一种智慧方式。"</p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <h3>实践建议</h3>
+                <p>• 每日盐摄入量控制在5克以内<br>
+                • 增加新鲜蔬菜水果摄入<br>
+                • 每周至少测量血压一次<br>
+                • 保持适度身体活动（如散步）</p>
+            </div>
+        </section>
+        
+        <!-- 吉祥结分隔符 -->
+        <div class="separator"></div>
+        
+        <!-- 肝胆健康 -->
+        <section id="liver" class="health-section">
+            <div class="section-header">
+                <div class="section-icon">🌿</div>
+                <h2 class="section-title">肝胆健康保护</h2>
+            </div>
+            
+            <div class="content-block">
+                <h3>肝胆健康的重要性</h3>
+                <p>肝脏和胆囊是我们体内重要的代谢和解毒器官。在西藏地区，肝胆疾病患病率较高，需要我们特别关注。</p>
+            </div>
+            
+            <div class="content-block">
+                <h3>传统饮食与现代健康</h3>
+                <p>藏族传统饮食中富含高蛋白和高脂肪食物，适量摄入对健康有益，但过量可能增加肝胆负担。我们提倡在保留传统饮食精华的同时，加入更多现代健康理念。</p>
+            </div>
+            
+            <div class="content-block">
+                <h3>预防措施</h3>
+                <p>• 适量饮酒，避免酗酒<br>
+                • 定期进行健康检查<br>
+                • 注意饮食卫生，预防寄生虫感染<br>
+                • 保持健康体重，避免肥胖</p>
+            </div>
+        </section>
+        
+        <!-- 吉祥结分隔符 -->
+        <div class="separator"></div>
+        
+        <!-- 营养平衡 -->
+        <section id="nutrition" class="health-section">
+            <div class="section-header">
+                <div class="section-icon">🍎</div>
+                <h2 class="section-title">营养平衡之道</h2>
+            </div>
+            
+            <div class="content-block">
+                <h3>传统与现代的营养智慧</h3>
+                <p>藏族传统饮食如糌粑、酥油、牦牛肉等富含能量和营养，但在现代生活方式下，我们需要更均衡的营养搭配。</p>
+            </div>
+            
+            <div class="content-block">
+                <h3>构建平衡膳食</h3>
+                <p>• 主食多样化：糌粑、青稞、米饭搭配食用<br>
+                • 增加蔬菜摄入：高原蔬菜如萝卜、土豆、白菜等<br>
+                • 适量蛋白质：牦牛肉、羊肉、奶制品交替食用<br>
+                • 补充水分：每日饮用足够量的水或淡茶</p>
+            </div>
+        </section>
+        
+        <!-- 家庭关怀部分 -->
+        <section id="family" class="family-section">
+            <div class="section-header">
+                <div class="section-icon">👪</div>
+                <h2 class="section-title">家庭健康与代际关怀</h2>
+            </div>
+            
+            <div class="family-content">
+                <div class="family-text">
+                    <div class="content-block">
+                        <h3>家庭是健康的基石</h3>
+                        <p>在藏族文化中，家庭和社群观念根深蒂固。健康不仅是个人责任，更是家庭共同的责任。我们鼓励家庭成员相互关心、相互支持，共同维护家庭健康。</p>
+                    </div>
+                    
+                    <div class="content-block">
+                        <h3>代际健康传承</h3>
+                        <p>我们特别鼓励年轻人：<br>
+                        1. 帮助长辈理解健康信息<br>
+                        2. 陪同长辈进行健康检查<br>
+                        3. 学习传统健康智慧与现代医学知识<br>
+                        4. 成为家庭健康的守护者</p>
+                    </div>
+                </div>
+                
+                <div class="family-image">
+                    <div>家庭健康 · 世代幸福</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">健康资源</a>
+            <a href="#">社区支持</a>
+            <a href="#">联系方式</a>
+        </div>
+        <div class="copyright">
+            © 2025 扎西德勒健康项目 | 遵循文化尊重设计原则
+        </div>
+    </footer>
 
-    <script src="assets/js/script.js"></script>
+    <script>
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 移动设备导航菜单
+        if (window.innerWidth <= 768) {
+            const nav = document.querySelector('nav');
+            const logo = document.querySelector('.logo');
+            
+            logo.addEventListener('click', function() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = 'var(--white)';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+            });
+        }
+    </script>
 </body>
 </html>
