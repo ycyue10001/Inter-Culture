@@ -11,13 +11,25 @@
     <div class="app-layout">
         <aside class="sidebar">
             <div class="logo">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" stroke-width="6" fill="none"/><circle cx="50" cy="50" r="12" stroke-width="6" fill="none"/><path d="M50,12 L50,88 M12,50 L88,50 M26.2,26.2 L73.8,73.8 M26.2,73.8 L73.8,26.2" stroke-width="6"/></svg>
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM12 4c-2.97 0-5.58 1.66-6.96 4L12 12V4zm0 16c2.97 0 5.58-1.66 6.96-4L12 12v8zM4.04 8C5.42 5.66 8.03 4 11 4v8L4.04 8zm15.92 8c-1.38 2.34-3.99 4-6.96 4v-8l6.96 4z"/></svg>
                 <h2>扎西德勒健康</h2>
             </div>
             <nav class="main-nav">
-                <a href="#guides" class="nav-item active" data-target="guides-page"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V6h5.17l2 2H20v10z"/></svg> <span>健康指南</span></a>
-                <a href="#ai-chat" class="nav-item" data-target="ai-chat-page"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2.9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.41 12.41L8 11l-1.41 1.41L5.17 11 6.59 9.59 8 11l1.41-1.41L10.83 11l-1.42 1.41zM16 14h-4v-2h4v2zm0-3h-4V9h4v2z"/></svg> <span>AI 智医</span></a>
+                <a href="#guides" class="nav-item active" data-target="guides-page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 2H8C6.9 2 6 2.9 6 4v1H4v2h16V5h-2V4c0-1.1-.9-2-2-2zM8 4h8v1H8V4zm10 4H6c-1.1 0-2 2 2 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2z"/></svg> 
+                    <span>健康指南</span>
+                </a>
+                <a href="#ai-chat" class="nav-item" data-target="ai-chat-page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2.9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.41 12.41L8 11l-1.41 1.41L5.17 11 6.59 9.59 8 11l1.41-1.41L10.83 11l-1.42 1.41zM16 14h-4v-2h4v2zm0-3h-4V9h4v2z"/></svg> 
+                    <span>AI 智医</span>
+                </a>
             </nav>
+            <div class="sidebar-footer">
+                <div class="footer-knot">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6"><path d="M35 20 L50 35 L65 20 L50 5 Z M35 80 L50 65 L65 80 L50 95 Z M20 35 L35 50 L20 65 L5 50 Z M80 35 L65 50 L80 65 L95 50 Z M35 20 L20 35 M65 20 L80 35 M35 80 L20 65 M65 80 L80 65"/></svg>
+                </div>
+                <p>愿吉祥安康</p>
+            </div>
         </aside>
 
         <main class="main-content">
@@ -27,69 +39,47 @@
                     <p>汇集高原常见健康问题的深度解读与实用建议</p>
                 </header>
                 <div class="guide-grid">
-                    <div class="guide-card">
-                        <h4>1. 高原高血压管理指南</h4>
-                        <p>高血压是高原地区最常见的慢性病之一 [1, 2, 3]。本指南将现代医学与藏医药“隆”失衡的理论相结合 [4, 5]，提供包括低盐饮食改良（如健康酥油茶配方）、规律运动（如结合转经的步行计划）、药物依从性以及情绪管理在内的综合性管理方案。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>2. 藏式平衡膳食宝典</h4>
-                        <p>针对本地高脂高盐的饮食特点 [1]，本指南提供符合藏族饮食习惯的“平衡餐盘”模型，详细介绍如何科学搭配糌粑、肉类与本地蔬菜。特别包含一个“读懂食品包装”的互动章节，帮助用户识别高风险加工食品 [6, 7]。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>3. 糖尿病预防与早期识别</h4>
-                        <p>随着生活方式改变，糖尿病风险增加。本指南用通俗易懂的语言解释什么是糖尿病，列出早期症状（如多饮、多尿、体重不明原因下降），并提供通过调整饮食结构（如控制甜茶摄入）和增加体力活动来预防糖尿病的具体方法。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>4. 肝胆健康特别关注</h4>
-                        <p>研究显示，胆囊炎等肝胆疾病在本地较为普遍 。本指南详细介绍肝胆疾病的常见症状（如右上腹疼痛、消化不良），分析其与高脂饮食的关系，并强调定期体检和B超检查的重要性。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>5. “隆”的平衡与心理健康</h4>
-                        <p>藏医药认为，焦虑、失眠、心神不宁等问题与“隆”的失衡密切相关 [8, 9]。本指南提供多种非药物的“安抚隆”的方法，如观呼吸练习、静坐冥想入门、以及通过亲近自然和社交倾诉来舒缓压力。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>6. 女性健康与保健</h4>
-                        <p>涵盖女性不同生命周期的健康要点，包括经期卫生、孕期保健（强调补充叶酸和定期产检的重要性）、以及更年期综合征的应对。内容特别强调高原环境下孕产妇保健的特殊性。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>7. 儿童成长与疫苗接种</h4>
-                        <p>提供0-6岁儿童生长发育的关键指标参考，以及国家免疫规划疫苗的完整接种时间表和注意事项 。用问答形式解答家长最关心的喂养、常见病护理（如感冒、腹泻）等问题。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>8. 预防人畜共患病（包虫病）</h4>
-                        <p>包虫病是严重危害我区人民健康的公共卫生问题 [10]。本指南用图文并茂的形式，详细讲解其传播途径，并提供“管好犬、喝开水、勤洗手、不吃生肉”等具体、可操作的“一管三不”预防措施。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>9. 识别中风与心脏病预警信号</h4>
-                        <p>心脑血管疾病是首要死因 [1, 11]。本指南教授如何快速识别中风（FAST口诀：面部、手臂、语言、时间）和心脏病发作的紧急信号，并强调一旦发现，必须立刻拨打急救电话，为生命争取时间。</p>
-                    </div>
-                    <div class="guide-card">
-                        <h4>10. 科学就医与用药指南</h4>
-                        <p>帮助用户了解本地的医疗服务体系 [12, 13]。指导如何选择合适的医院、看病时如何与医生有效沟通、如何看懂药方、以及安全用药的基本原则（如不随意增减剂量、注意不良反应等）。</p>
-                    </div>
+                    <div class="guide-card" data-guide="guide-1"><h4>1. 高原高血压管理指南</h4><p>高血压是高原地区最常见的慢性病之一。本指南将现代医学与藏医药“隆”失衡的理论相结合，提供综合性管理方案。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-2"><h4>2. 藏式平衡膳食宝典</h4><p>针对本地高脂高盐的饮食特点，本指南提供符合藏族饮食习惯的“平衡餐盘”模型，并包含“读懂食品包装”的互动章节。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-3"><h4>3. 糖尿病预防与早期识别</h4><p>随着生活方式改变，糖尿病风险增加。本指南用通俗易懂的语言解释糖尿病，列出早期症状，并提供具体的预防方法。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-4"><h4>4. 肝胆健康特别关注</h4><p>鉴于胆囊炎等肝胆疾病在本地较为普遍，本指南详细介绍其常见症状、风险因素，并强调定期体检的重要性。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-5"><h4>5. “隆”的平衡与心理健康</h4><p>藏医药认为，焦虑、失眠等问题与“隆”的失衡密切相关。本指南提供多种非药物的“安抚隆”的方法，如观呼吸、静坐等。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-6"><h4>6. 高原关节健康与养护</h4><p>高原气候寒冷潮湿，易发关节问题。本指南介绍关节炎的常见类型，并提供保暖、合理运动及食疗等日常养护建议。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-7"><h4>7. 儿童成长与疫苗接种</h4><p>提供0-6岁儿童生长发育的关键指标参考，以及国家免疫规划疫苗的完整接种时间表和注意事项，解答家长常见疑问。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-8"><h4>8. 预防人畜共患病（包虫病）</h4><p>包虫病是严重危害我区人民健康的公共卫生问题。本指南用图文并茂的形式，详细讲解其传播途径与“一管三不”预防措施。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-9"><h4>9. 识别中风与心脏病预警信号</h4><p>心脑血管疾病是首要死因之一。本指南教授如何快速识别中风（FAST口诀）和心脏病发作的紧急信号，强调急救的重要性。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-10"><h4>10. 高原眼部健康与保护</h4><p>高原紫外线强烈，易对眼睛造成伤害。本指南介绍白内障等常见眼病，并提供佩戴太阳镜、合理用眼等保护眼睛的方法。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-11"><h4>11. 女性健康与保健</h4><p>涵盖女性不同生命周期的健康要点，包括经期卫生、孕期保健（强调补充叶酸和定期产检）、以及更年期综合征的应对。</p><button class="guide-btn">查看详情</button></div>
+                    <div class="guide-card" data-guide="guide-12"><h4>12. 科学就医与用药指南</h4><p>帮助用户了解本地医疗服务体系。指导如何与医生有效沟通、看懂药方、以及安全用药的基本原则。</p><button class="guide-btn">查看详情</button></div>
                 </div>
             </div>
 
             <div id="ai-chat-page" class="page">
                 <header class="page-header">
                     <h1>AI 智医 (Amchi-AI)</h1>
-                    <p>您身边的智能健康助手。请在下方输入您的问题。</p>
+                    <p>您身边的智能健康助手。请在下方输入您的问题。(AI功能由Gemini API驱动)</p>
                 </header>
                 <div class="chat-container">
                     <div class="chat-box" id="chat-box">
-                        <div class="message ai-message">
-                            <p>扎西德勒！我是Amchi-AI，您的智能健康助手。您可以问我关于高血压、饮食、或者哪里不舒服等问题。<strong>请注意：我的回答仅供参考，不能替代专业医生的诊断。</strong></p>
-                        </div>
+                        <div class="message ai-message"><p>扎西德勒！我是Amchi-AI，您的智能健康助手。您可以问我关于高血压、饮食、或者哪里不舒服等问题。<strong>请注意：我的回答仅供参考，不能替代专业医生的诊断。</strong></p></div>
                     </div>
                     <div class="chat-input-area">
-                        <input type="text" id="user-input" placeholder="请在此输入您的问题...">
-                        <button id="send-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                        </button>
+                        <input type="text" id="user-input" placeholder="请在此输入您的问题..." autocomplete="off">
+                        <button id="send-btn" title="发送"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
                     </div>
                 </div>
             </div>
         </main>
+    </div>
+
+    <div id="guide-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">指南标题</h2>
+            <div id="modal-body">
+                <p>指南详细内容...</p>
+            </div>
+        </div>
     </div>
 
     <script src="assets/js/script.js"></script>
