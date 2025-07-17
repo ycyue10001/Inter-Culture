@@ -2,8 +2,6 @@
 
 **一个专注于使用LoRA微调NLLB-200模型，以减少在翻译世卫组织（WHO）材料时出现“声誉风险”的项目**
 
-([https://img.shields.io/badge/License-MIT-yellow.svg](https://www.google.com/search?q=https://img.shields.io/badge/License-MIT-yellow.svg))([https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT))
-
 ## 1\. 项目概述
 
 本项目旨在解决一个在全球公共卫生领域至关重要的挑战：通用人工智能模型在处理专业内容时，可能因严重错译而带来风险。受到世界卫生组织（WHO）一份内部报告的启发，该报告详细描述了由AI翻译错误导致的“声誉风险”，本项目展示了一种实用且高效的解决方案。
