@@ -13,6 +13,7 @@
 
 import os
 import subprocess
+import sys
 
 # 定义一个函数来安装所需的Python库。
 # 当然，也可以直接在终端中运行这些命令。
@@ -20,7 +21,16 @@ import subprocess
 def install_packages(packages):
     for package in packages:
         print(f"正在安装 {package}...")
-        os.system(f"pip install {package} --quiet")
+        os.system(f"pip install {package} -i https://pypi.tuna.tsinghua.edu.cn/simple --quiet")
+
+# 自动安装缺失的库
+def install_missing_packages(packages):
+    for package in packages:
+        try:
+            __import__(package)  # 尝试导入库
+        except ImportError:
+            print(f"未找到库 {package}，正在安装...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", package, "--quiet"])
 
 print("--- 步骤 1: 正在安装所需库... ---")
 install_packages([
@@ -48,7 +58,7 @@ from datasets import load_dataset
 print("\n--- 步骤 2: 正在准备数据集... ---")
 
 # --- 创建虚拟数据文件 ---
-# 重要提示：在您的实际项目中，您应该已经有了一个名为 'who_corpus.csv' 的文件。
+# 重要提示：在实际项目中，应该已经有一个名为 'who_corpus.csv' 的文件。
 # 这里我们创建一个包含高质量、领域相关句子的示例文件，以保证代码可以运行。
 # 这些句子来源于WHO关于疟疾和结核病的官方事实清单。
 dummy_data = {
@@ -88,11 +98,11 @@ raw_datasets = load_dataset("csv", data_files={"train": data_file_path})
 print("\n数据集结构:")
 print(raw_datasets)
 
-# 接下来，我们使用NLLB的分词器（Tokenizer）对文本数据做分词。
+# 接下来，使用NLLB的分词器（Tokenizer）对文本数据做分词。
 from transformers import AutoTokenizer
 
 # 定义Hugging Face上的模型检查点
-# 我们选用distilled-600M版本，它在性能和资源消耗之间取得了很好的平衡
+# 选用distilled-600M版本，它在性能和资源消耗之间取得了很好的平衡
 model_checkpoint = "facebook/nllb-200-distilled-600M"
 
 # 加载分词器，并指定源语言和目标语言
