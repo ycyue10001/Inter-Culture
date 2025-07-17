@@ -74,14 +74,14 @@ dummy_data = {
 pd.DataFrame(dummy_data).to_csv("who_corpus.csv", index=False)
 # --- 虚拟数据文件创建结束 ---
 
-# 从CSV文件加载您的数据集
+# 从CSV文件加载数据集
 raw_datasets = load_dataset("csv", data_files={"train": "who_corpus.csv"})
 
 print("数据集结构:")
 print(raw_datasets)
 ```
 
-接下来，我们使用NLLB的分词器（Tokenizer）对文本数据进行分词。
+接下来，使用NLLB的分词器（Tokenizer）对文本数据做分词。
 
 ```python
 from transformers import AutoTokenizer
@@ -111,7 +111,7 @@ tokenized_datasets = raw_datasets.map(
     remove_columns=raw_datasets["train"].column_names
 )
 
-print("\n分词后的数据集示例:")
+print("分词后的数据集示例:")
 print(tokenized_datasets["train"])
 ```
 
@@ -171,13 +171,13 @@ trainer = Seq2SeqTrainer(
 )
 
 # 开始训练
-print("\n--- 开始LoRA微调 ---")
+print("--- 开始LoRA微调 ---")
 trainer.train()
 print("--- 微调完成 ---")
 
 # 保存训练好的LoRA适配器
 trainer.save_model("./nllb-lora-who-adapter")
-print("\nLoRA适配器已保存至 './nllb-lora-who-adapter'")
+print("LoRA适配器已保存至 './nllb-lora-who-adapter'")
 ```
 
 ### 3.4. 推理与评估
@@ -196,9 +196,9 @@ inference_model = PeftModel.from_pretrained(base_model, "./nllb-lora-who-adapter
 inference_model.eval() # 切换到评估模式
 
 # 定义包含“声誉风险”术语的测试句子
-test_sentences = "例句"
+test_sentences = "test_sentences"
 
-print("\n--- 翻译质量对比 ---")
+print("--- 翻译质量对比 ---")
 
 for sentence in test_sentences:
     # 准备模型输入
@@ -219,7 +219,7 @@ for sentence in test_sentences:
     output_baseline = tokenizer.batch_decode(translated_tokens_base, skip_special_tokens=True)
 
     # 打印对比结果
-    print(f"\n源句 (EN): {sentence}")
+    print(f"源句 (EN): {sentence}")
     print(f"基线模型: {output_baseline}")
     print(f"微调模型: {output_finetuned}")
 
@@ -244,8 +244,6 @@ print("\n--- 评估完成 ---")
   - **开发交互式工具**：构建一个基于Web的应用，让公共卫生专业人员可以在日常工作中使用这个微调后的模型。
 
 ## 6\. 引用
-
-如果您使用本项目，请考虑引用那些使其成为可能的研究和工具：
 
 > Hu, E. J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S.,... & Chen, W. (2021). LoRA: Low-Rank Adaptation of Large Language Models. *arXiv preprint arXiv:2106.09685*.
 
