@@ -41,7 +41,6 @@ install_packages([
     "peft",
     "bitsandbytes",
     "loralib",
-    "triton",
     "sacrebleu"
 ])
 print("--- 环境配置完成 ---")
