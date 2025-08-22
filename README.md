@@ -38,7 +38,7 @@
 #### 安装核心的Hugging Face库
 
 ```bash
-pip install "transformers==4.36.2" "datasets==2.16.1" "accelerate==0.26.1" "evaluate==0.4.1" --quiet
+pip install "transformers" "datasets" "accelerate" "evaluate" --quiet
 ```
 
 #### 安装PEFT库和LoRA依赖
@@ -46,7 +46,7 @@ pip install "transformers==4.36.2" "datasets==2.16.1" "accelerate==0.26.1" "eval
 #### bitsandbytes 用于8位量化，以节省显存
 
 ```bash
-pip install "peft==0.7.1" "bitsandbytes==0.42.0" loralib --upgrade --quiet
+pip install "peft" "bitsandbytes" --quiet
 ```
 
 #### 安装评估指标所需的库
