@@ -34,14 +34,14 @@ def install_missing_packages(packages):
 
 print("--- 步骤 1: 正在安装所需库... ---")
 install_packages([
-    "transformers==4.36.2",
-    "datasets==2.16.1",
-    "accelerate==0.26.1",
-    "evaluate==0.4.1",
-    "peft==0.7.1",
-    "bitsandbytes==0.42.0",
+    "transformers",
+    "datasets",
+    "accelerate",
+    "evaluate",
+    "peft",
+    "bitsandbytes",
     "loralib",
-    "triton==2.0.0",
+    "triton",
     "sacrebleu"
 ])
 print("--- 环境配置完成 ---")
